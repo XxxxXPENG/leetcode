@@ -1,20 +1,8 @@
 package sf.ListNode;
 
 public class ListNode {
-    public static void main(String[] args) {
-        ListNode head = new ListNode(-1);
-        head.init(5);  //初始化的时候是从2开始的啊？！ 怎么还是1   ----因为next默认就是null
-//        System.out.println(head.toString());
-        ListNode cur = head;  // -1 1 2 3 4 5
-        while(cur != null){
-            System.out.print(cur.val + " ");
-            cur = cur.next;
-        }
-        System.out.println();
-        System.out.println(head.toString());  //为什么这种就从1开始
-    }
     public ListNode next;
-    int val;
+    public int val;
     ListNode(int val){
         this.val = val;
     }
