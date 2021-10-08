@@ -3,7 +3,7 @@ package sf.ListNode;
 public class ListNode {
     public ListNode next;
     public int val;
-    ListNode(int val){
+    public ListNode(int val){
         this.val = val;
     }
     ListNode init(int n){
