@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class LengthOfLongestSubstring {
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring2("pwwkew"));
+        System.out.println(lengthOfLongestSubstring2("abba"));
     }
 
     public static int lengthOfLongestSubstring2(String s) {
