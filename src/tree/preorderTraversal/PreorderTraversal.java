@@ -19,15 +19,16 @@ public class PreorderTraversal {
             return res;
         }
         Deque<TreeNode> deque = new LinkedList<>();
-        TreeNode node = root;
-        while (!deque.isEmpty() || node != null) {
-            while (node != null) {
-                res.add(node.val);
-                deque.push(node);
-                node = node.left;
+        deque.push(root);
+        while (!deque.isEmpty()) {
+            TreeNode poll = deque.poll();
+            res.add(poll.val);
+            if (poll.right != null) {
+                deque.push(poll.right);
             }
-            node = deque.pop();
-            node = node.right;
+            if (poll.left != null) {
+                deque.push(poll.left);
+            }
         }
         return res;
     }
