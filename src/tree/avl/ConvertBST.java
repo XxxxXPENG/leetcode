@@ -1,4 +1,6 @@
-package tree;
+package tree.avl;
+
+import tree.TreeNode;
 
 public class ConvertBST {
     //反中序遍历 （右 中 左）
