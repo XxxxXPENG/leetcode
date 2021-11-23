@@ -1,4 +1,4 @@
-package tree.avl;
+package tree.bst;
 
 import tree.TreeNode;
 
