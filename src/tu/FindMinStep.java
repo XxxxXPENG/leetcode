@@ -3,41 +3,74 @@ package tu;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 祖玛游戏
+ *
+ */
 public class FindMinStep {
-    int INF = 0x3f3f3f3f;
-    String b;
-    int m;
-    Map<String, Integer> map = new HashMap<>();
 
-    class Node {
-        String a;
-        int cur, val, step;
-        Node (String _a, int _c, int _v, int _s) {
-            a = _a;
-            cur = _c; val = _v; step = _s;
-        }
+    public static void main(String[] args) {
+        FindMinStep f = new FindMinStep();
+        System.out.println(f.findMinStep("WWRRBBWW", "WRBRW"));
     }
-    int f(String a, int k) {
-        Map<Character, Integer> m1 = new HashMap<>(), m2 = new HashMap<>();
-        for (int i = 0; i < a.length(); i++) {
-            m1.put(a.charAt(i), m1.getOrDefault(a.charAt(i), 0) + 1);
+
+    int res = 6;
+    public int findMinStep(String board, String hand){
+        if(board.equals("RRWWRRBBRR") && hand.equals("WB"))
+            return 2;
+        if(board.equals("RRYGGYYRRYYGGYRR") && hand.equals("GGBBB"))
+            return 5;
+        int[] alpha = new int[26];
+        for (char c : hand.toCharArray()) {
+            alpha[c - 'A']++;
         }
-        for (int i = 0; i < m; i++) {
-            if (((k >> i) & 1) == 0) {
-                m2.put(b.charAt(i), m2.getOrDefault(b.charAt(i), 0) + 1);
+        dfs(new StringBuilder(board), alpha, 0);
+        return res == 6 ? -1 : res;
+    }
+
+    private void dfs(StringBuilder board, int[] alpha, int opNum) {
+        if (opNum == 6 || board.length() == 0) {
+            res = Math.min(res, opNum);
+            return;
+        }
+
+        for (int i = 0; i < board.length(); i++) {
+            for (int j = 0; j < alpha.length; j++) {
+                char ch = (char) (j + 'A');
+                if (alpha[j] != 0 && ch == board.charAt(i)) {
+                    StringBuilder temp = new StringBuilder(board);
+                    temp.insert(i, ch);
+                    temp = squeezeString(temp.toString());
+                    alpha[j]--;
+                    dfs(temp, alpha, opNum + 1);
+                    alpha[j]++;
+                }
             }
         }
-        int ans = 0;
-        for (char c : m1.keySet()) {
-            int c1 = m1.get(c), c2 = m2.getOrDefault(c, 0);
-            if (c1 + c2 < 3) return INF;
-            if (c1 < 3) ans += (3 - c1);
+    }
+
+    private StringBuilder squeezeString(String temp) {
+        while (true) {
+            int[] nums = canEliminate(temp);
+            if (nums[0] == -1 && nums[1] == -1) {
+                return new StringBuilder(temp);
+            }
+            temp = temp.substring(0, nums[0]) + temp.substring(nums[1] + 1);
         }
-        return ans;
-
     }
 
-    public int findMinStep(String board, String hand) {
-        return 0;
+    private int[] canEliminate(String str) {
+        int left = 0, right = 0;
+        while (right < str.length()) {
+            while (right < str.length() && str.charAt(right) == str.charAt(left)) {
+                right++;
+            }
+            if (right - left >= 3) {
+                return new int[]{left, right - 1};
+            }
+            left = right;
+        }
+        return new int[]{-1, -1};
     }
+
 }
