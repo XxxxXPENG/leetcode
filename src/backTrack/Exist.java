@@ -1,4 +1,4 @@
-package tu;
+package backTrack;
 
 public class Exist {
     private static final int[][] DIRECTIONS = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};

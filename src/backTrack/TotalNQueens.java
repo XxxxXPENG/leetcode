@@ -1,4 +1,4 @@
-package tu;
+package backTrack;
 
 public class TotalNQueens {
     private int res = 0;

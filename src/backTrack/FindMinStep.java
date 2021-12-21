@@ -1,7 +1,4 @@
-package tu;
-
-import java.util.HashMap;
-import java.util.Map;
+package backTrack;
 
 /**
  * 祖玛游戏

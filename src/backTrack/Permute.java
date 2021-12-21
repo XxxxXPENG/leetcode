@@ -1,4 +1,4 @@
-package tu;
+package backTrack;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
