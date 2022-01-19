@@ -1,16 +1,38 @@
 package mid;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class L354_俄罗斯套娃信封问题 {
 
     public static void main(String[] args) {
         L354_俄罗斯套娃信封问题 a = new L354_俄罗斯套娃信封问题();
-        System.out.println(a.maxEnvelopes(new int[][]{
+        System.out.println(a.maxEnvelopes2(new int[][]{
                 {2, 100}, {3, 200}, {4, 300}, {5, 500}, {5, 400},
                 {5, 250}, {6, 370}, {6, 360}, {7, 380}
         }));
     }
+
+    public int maxEnvelopes2(int[][] envelopes) {
+        int n = envelopes.length;
+        if (n == 0) {
+            return 0;
+        }
+        Arrays.sort(envelopes, Comparator.comparingInt(a -> a[0]));
+        int[] f = new int[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            f[i] = 1;
+            for (int j = i - 1; j >= 0; j--) {
+                if (envelopes[j][0] < envelopes[i][0] && envelopes[j][1] < envelopes[i][1]) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
+            }
+            res = Math.max(res, f[i]);
+        }
+        return res;
+    }
+
 
     public int maxEnvelopes(int[][] envelopes) {
         Arrays.sort(envelopes, (e1, e2) -> {
