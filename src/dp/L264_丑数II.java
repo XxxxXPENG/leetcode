@@ -10,9 +10,11 @@ public class L264_丑数II {
             dp[i] = Math.min(Math.min(num2, num3), num5);
             if (num2 == dp[i]) {
                 p2++;
-            } else if (num3 == dp[i]) {
+            }
+            if (num3 == dp[i]) {
                 p3++;
-            } else if(num5 == dp[i]){
+            }
+            if(num5 == dp[i]){
                 p5++;
             }
         }
