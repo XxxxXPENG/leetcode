@@ -6,7 +6,13 @@ public class ListNode {
     public ListNode(int val){
         this.val = val;
     }
-    ListNode init(int n){
+
+    public ListNode(ListNode head, int val) {
+        next = new ListNode(val);
+        next.next = head;
+    }
+
+    public ListNode init(int n){
         if(next == null){
             next = new ListNode(1);
         }
