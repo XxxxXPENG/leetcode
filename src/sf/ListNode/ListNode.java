@@ -7,9 +7,20 @@ public class ListNode {
         this.val = val;
     }
 
-    public ListNode(ListNode head, int val) {
-        next = new ListNode(val);
-        next.next = head;
+
+    public static void main(String[] args) {
+        System.out.println(ListNode.init(new int[]{1,2,3,4}));
+    }
+
+    public static ListNode init(int[] arr) {
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = new ListNode(arr[0]);
+        dummy.next = cur;
+        for (int i = 1; i < arr.length; i++) {
+            cur.next = new ListNode(arr[i]);
+            cur = cur.next;
+        }
+        return dummy.next;
     }
 
     public ListNode init(int n){
