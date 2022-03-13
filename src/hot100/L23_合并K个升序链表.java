@@ -23,6 +23,7 @@ public class L23_合并K个升序链表 {
                 pq.offer(node);
             }
         }
+        //头插法Demo
         ListNode dummy = new ListNode(-1);
         ListNode tail = dummy;
         while (!pq.isEmpty()) {

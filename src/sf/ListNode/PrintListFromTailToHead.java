@@ -47,7 +47,7 @@ public class PrintListFromTailToHead {
         return list;
     }
 
-    //头插法
+    //头插法Demo
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         while(listNode != null){
             list.add(0,listNode.val);
