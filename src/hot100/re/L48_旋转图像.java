@@ -1,10 +1,9 @@
-package hot100;
+package hot100.re;
 
 public class L48_旋转图像 {
     public void rotate(int[][] matrix) {
-        //先上下 再主对角翻转
         int n = matrix.length;
-        for (int i = 0; i < n / 2; i++) {
+        for (int i = 0; i < n/2; i++) {
             for (int j = 0; j < n; j++) {
                 int tmp = matrix[i][j];
                 matrix[i][j] = matrix[n - i - 1][j];
