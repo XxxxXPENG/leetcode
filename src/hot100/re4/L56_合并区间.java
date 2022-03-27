@@ -1,4 +1,4 @@
-package hot100.rre;
+package hot100.re4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ public class L56_合并区间 {
         for (int i = 1; i < intervals.length; i++) {
             int left = intervals[i][0], right = intervals[i][1];
             if (rightPre >= left) {
-                rightPre = Math.max(rightPre, right);
+                rightPre = Math.max(right, rightPre);
             } else {
                 res.add(new int[]{leftPre, rightPre});
                 leftPre = left;

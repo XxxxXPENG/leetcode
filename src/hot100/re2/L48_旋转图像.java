@@ -1,4 +1,4 @@
-package hot100.rre;
+package hot100.re2;
 
 public class L48_旋转图像 {
     public static void main(String[] args) {

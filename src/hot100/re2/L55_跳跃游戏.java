@@ -1,4 +1,4 @@
-package hot100.rre;
+package hot100.re2;
 
 public class L55_跳跃游戏 {
 

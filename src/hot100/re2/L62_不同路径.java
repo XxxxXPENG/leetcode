@@ -1,4 +1,4 @@
-package hot100.rre;
+package hot100.re2;
 
 public class L62_不同路径 {
     public int uniquePaths(int m, int n) {
