@@ -1,11 +1,24 @@
 package hot100;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class L76_最小覆盖子串 {
     Map<Character, Integer> tMap = new HashMap<>();
     Map<Character, Integer> sMap = new HashMap<>();
+
+    /**
+     * "cabwefgewcwaefgcf"
+     * "cae"
+     * ans : "cwae"
+     * wrong: aefgc
+     * @param args
+     */
+    public static void main(String[] args) {
+        L76_最小覆盖子串 a = new L76_最小覆盖子串();
+        System.out.println(a.minWindow("cabwefgewcwaefgcf","cae"));
+    }
 
     public String minWindow(String s, String t) {
         int tLen = t.length();
@@ -21,7 +34,7 @@ public class L76_最小覆盖子串 {
                 sMap.put(s.charAt(r), sMap.getOrDefault(s.charAt(r), 0) + 1);
             }
             while (check() && l <= r) {
-                if (len > l - r + 1) {
+                if (len > r-l+ 1) {
                     len = r - l + 1;
                     ansL = l;
                     ansR = l + len;
