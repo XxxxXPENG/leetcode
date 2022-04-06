@@ -7,7 +7,14 @@ public class L79_单词搜索 {
     private int rows;
     private int cols;
     private boolean[][] visited;
-
+//[["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+//"ABCB"
+    public static void main(String[] args) {
+        L79_单词搜索 a = new L79_单词搜索();
+        System.out.println(a.exist(new char[][]{{'a','b','c','e'},
+                {'s','f','c','s'},
+                {'a','d','e','e'}},"abcd"));
+    }
 
 
     public boolean exist(char[][] board, String word) {

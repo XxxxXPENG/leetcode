@@ -8,8 +8,8 @@ public class L55_跳跃游戏 {
     }
 
     public boolean canJump(int[] nums){
-        int len = nums.length, max = nums[0];
-        for (int i = 1; i < len; i++) {
+        int len = nums.length, max = 0;
+        for (int i = 0; i < len; i++) {
             if (max >= i) {
                 max = Math.max(max, i + nums[i]);
                 if (max >= len - 1) {

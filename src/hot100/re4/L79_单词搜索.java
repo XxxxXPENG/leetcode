@@ -1,19 +1,18 @@
-package hot100.re2;
+package hot100.re4;
 
 public class L79_单词搜索 {
-    private int[][] directions = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-    private boolean[][] visited;
     private char[][] board;
     private char[] chars;
+    private boolean[][] visited;
     private int rows;
     private int cols;
-
+    private int[][] directions = new int[][]{{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
     public boolean exist(char[][] board, String word) {
-        this.board=board;
-        chars = word.toCharArray();
         rows = board.length;
         cols = board[0].length;
+        this.board = board;
+        chars = word.toCharArray();
         visited = new boolean[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -27,15 +26,15 @@ public class L79_单词搜索 {
 
     private boolean dfs(int i, int j, int begin) {
         if (begin == chars.length - 1) {
-            return board[i][j] == chars[begin];
+            return chars[begin] == board[i][j];
         }
         visited[i][j] = true;
-        if (chars[begin] == board[i][j]) {
+        if (board[i][j] == chars[begin]) {
             for (int[] direction : directions) {
-                int newX = i + direction[0];
-                int newY = j + direction[1];
-                if (inArea(newX, newY) && !visited[newX][newY]) {
-                    if (dfs(newX, newY, begin + 1)) {
+                int x = i + direction[0];
+                int y = j + direction[1];
+                if (inArea(x, y) && !visited[x][y]) {
+                    if (dfs(x, y, begin + 1)) {
                         return true;
                     }
                 }

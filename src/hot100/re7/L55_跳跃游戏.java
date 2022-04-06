@@ -1,9 +1,9 @@
-package hot100.re4;
+package hot100.re7;
 
 public class L55_跳跃游戏 {
     public static void main(String[] args) {
         L55_跳跃游戏 a = new L55_跳跃游戏();
-        System.out.println(a.canJump(new int[]{3,2,1,0,4}));
+        System.out.println(a.canJump(new int[]{3}));
     }
 
     public boolean canJump(int[] nums) {
